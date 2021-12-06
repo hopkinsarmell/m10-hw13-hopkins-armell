@@ -58,7 +58,7 @@ async function getWeather(query) {
 }
 
 // show error message when location isn't found
-function displayLocNotFound() {
+displayLocNotFound = () => {
   // clears any previous weather info
   weatherContainer.innerHTML = "";
   // create h2, add error msg, and add to page
@@ -68,12 +68,12 @@ function displayLocNotFound() {
 }
 
 // updates HTML to display weather info
-function displayWeatherInfo(weatherObj) {
+displayWeatherInfo = (weatherObj) => {
   // clears any previous weather info
   weatherContainer.innerHTML = "";
 
   // inserts a linebreak <br> to weather section tag
-  function addBreak() {
+  addBreak = () => {
     weatherContainer.appendChild(
       document.createElement('br')
     )
