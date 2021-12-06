@@ -28,9 +28,7 @@ async function getWeather(query) {
   // return the fetch call which returns a promise
   // allows us to call .then on this function
   const res = await fetch(
-    'https://api.openweathermap.org/data/2.5/weather?q=' +
-    query +
-    '&units=imperial&appid=6efff70fe1477748e31c17d1c504635f'
+    `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=imperial&appid=6efff70fe1477748e31c17d1c504635f`
   )
   const data = await res.json()
   // location not found, throw error/reject promise
@@ -87,7 +85,7 @@ displayWeatherInfo = (weatherObj) => {
   // map link element based on lat/long
   const whereLink = document.createElement('a')
   whereLink.textContent = "Click to view map"
-  whereLink.href = "https://www.google.com/maps/search/?api=1&query=" + weatherObj.coords
+  whereLink.href = `https://www.google.com/maps/search/?api=1&query=${weatherObj.coords}`
   whereLink.target = "__BLANK"
   weatherContainer.appendChild(whereLink)
 
@@ -113,9 +111,7 @@ displayWeatherInfo = (weatherObj) => {
 
   // "feels like" temperature
   const feelsLikeTemp = document.createElement('p')
-  feelsLikeTemp.textContent = "Feels like: " +
-    weatherObj.feelsLikeTemp +
-    "° F"
+  feelsLikeTemp.textContent = `Feels like: ${weatherObj.feelsLikeTemp}° F`
   weatherContainer.appendChild(feelsLikeTemp)
 
   addBreak()
